@@ -1,0 +1,192 @@
+/* About Page Styles - Enhanced */
+.about-page {
+  position: relative;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, 
+    rgba(27, 38, 59, 0.95) 0%, 
+    rgba(65, 90, 119, 0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><pattern id="coffee-beans" width="100" height="100" patternUnits="userSpaceOnUse"><path fill="%23d4af37" d="M50,25c13.8,0,25-11.2,25-25S63.8,0,50,0S25,11.2,25,25S36.2,50,50,50z"/></pattern><rect width="1000" height="1000" fill="url(%23coffee-beans)"/></svg>');
+  padding: 8rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  margin-bottom: 8rem;
+  align-items: center;
+  position: relative;
+}
+
+.story-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.image-placeholder {
+  background: linear-gradient(135deg, var(--accent-teal), var(--primary-blue));
+  aspect-ratio: 1;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  box-shadow: 
+    0 20px 60px rgba(13, 27, 42, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.image-placeholder:hover::before {
+  left: 100%;
+}
+
+.image-placeholder:hover {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 
+    0 30px 80px rgba(13, 27, 42, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.story-text {
+  padding: 2rem;
+}
+
+.story-text h2 {
+  font-size: 3rem;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  position: relative;
+  display: inline-block;
+}
+
+.story-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-coral), var(--gold-accent));
+}
+
+.story-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--accent-teal);
+  margin-bottom: 1.8rem;
+  font-family: var(--font-body);
+  position: relative;
+  padding-left: 2rem;
+}
+
+.story-text p::before {
+  content: '•';
+  color: var(--gold-accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  position: relative;
+}
+
+.values-grid::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+}
+
+.value-card {
+  composes: card;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  position: relative;
+  padding: 3rem 2rem;
+}
+
+.value-card:hover {
+  transform: translateY(-15px);
+}
+
+.value-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 5px 10px rgba(212, 175, 55, 0.2));
+}
+
+.value-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.value-card p {
+  color: var(--accent-teal);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .story-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}

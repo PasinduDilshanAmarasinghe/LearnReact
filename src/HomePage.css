@@ -1,0 +1,307 @@
+/* Home Page Styles - Enhanced */
+.home-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  background: linear-gradient(135deg, 
+    rgba(27, 38, 59, 0.95) 0%, 
+    rgba(65, 90, 119, 0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><path fill="%23d4af37" d="M500,250c138,0,250-112,250-250S638,0,500,0S250,112,250,250S362,500,500,500S750,388,750,250S638,0,500,0z"/></svg>');
+  padding: 10rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(230, 57, 70, 0.1) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.line-1 {
+  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.line-2 {
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  font-weight: 700;
+  color: var(--gold-accent);
+  position: relative;
+  display: inline-block;
+}
+
+.line-2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+  animation: expandLine 1s ease 1.3s both;
+}
+
+@keyframes expandLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) skewX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) skewX(0deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) skewX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) skewX(0deg);
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  animation: fadeIn 1.2s ease 0.6s both;
+  font-family: var(--font-accent);
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  composes: elegant-button;
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(135deg, var(--gold-accent), #f2c94c);
+  box-shadow: 
+    0 15px 30px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: fadeInUp 1s ease 0.9s both;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #f2c94c, var(--gold-accent));
+  box-shadow: 
+    0 20px 40px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.hero-decoration {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.coffee-steam {
+  width: 6px;
+  height: 80px;
+  background: linear-gradient(to top, transparent, rgba(244, 232, 216, 0.6), transparent);
+  border-radius: 50%;
+  position: absolute;
+  animation: steam 4s ease-in-out infinite;
+  filter: blur(2px);
+  box-shadow: 0 0 10px rgba(244, 232, 216, 0.3);
+}
+
+.steam-1 { 
+  left: 0; 
+  animation-delay: 0s; 
+  transform-origin: bottom;
+}
+.steam-2 { 
+  left: 20px; 
+  animation-delay: 0.7s; 
+  transform-origin: bottom;
+  opacity: 0.7;
+}
+.steam-3 { 
+  left: 40px; 
+  animation-delay: 1.4s; 
+  transform-origin: bottom;
+  opacity: 0.5;
+}
+
+@keyframes steam {
+  0% { 
+    transform: translateY(0) scale(1, 0.5); 
+    opacity: 0; 
+  }
+  20% { 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: translateY(-100px) scale(1.5, 1); 
+  }
+  80% { 
+    opacity: 0.3; 
+  }
+  100% { 
+    transform: translateY(-200px) scale(2, 0.5); 
+    opacity: 0; 
+  }
+}
+
+.featured-products {
+  padding: 8rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.featured-products::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.product-card {
+  composes: card;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.product-icon {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.2));
+}
+
+.product-card h3 {
+  font-size: 2rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.product-card p {
+  color: var(--accent-teal);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+}
+
+.price {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+  color: var(--gold-accent);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.price::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.product-card:hover .price::before {
+  left: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero {
+    padding: 6rem 1.5rem;
+    min-height: 80vh;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
